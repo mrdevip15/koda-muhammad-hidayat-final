@@ -1,0 +1,735 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#14231e" />
+    <meta
+      name="description"
+      content="Kenalan dengan Muhammad Hidayat, Fullstack Web Developer dari Makassar. Sedikit tentang logika, rasa ingin tahu, dan sebuah side quest."
+    />
+    <title>Muhammad Hidayat - Makassar</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/fonts/space-grotesk-semibold.ttf"
+      as="font"
+      type="font/ttf"
+      crossorigin
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="game.css" />
+    <script src="arena.js" defer></script>
+    <script src="game.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Langsung ke konten</a>
+    <audio id="bgm" src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/fantasy-rpg.mp3" loop preload="auto"></audio>
+    <svg
+      class="icon-definitions"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <symbol id="icon-arrow" viewBox="0 0 24 24">
+        <path d="M5 19 19 5M5 5h14v14" />
+      </symbol>
+      <symbol id="icon-down" viewBox="0 0 24 24">
+        <path d="M12 4v16m-7-7 7 7 7-7" />
+      </symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24">
+        <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-13-2 16" />
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 0 1 14 0Z" />
+        <circle cx="12" cy="10" r="2" />
+      </symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24">
+        <path
+          d="M12 5v15M3 4c4-1 7 0 9 2 2-2 5-3 9-2v15c-4-1-7 0-9 2-2-2-5-3-9-2Z"
+        />
+      </symbol>
+      <symbol id="icon-music" viewBox="0 0 24 24">
+        <path d="M9 18V5l11-2v13M9 9l11-2" />
+        <ellipse cx="6" cy="18" rx="3" ry="2" />
+        <ellipse cx="17" cy="16" rx="3" ry="2" />
+      </symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24">
+        <path d="m9 5 11 7-11 7Z" />
+      </symbol>
+      <symbol id="icon-instagram" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <path d="M17.5 6.5h.01" />
+      </symbol>
+    </svg>
+
+    <header class="site-header page-width">
+      <a class="brand" href="#" aria-label="Koda Camp, kembali ke atas">
+        <img
+          class="brand-logo koda-logo"
+          src="https://kodacampmain.github.io/assets-library/img/logo-black.png"
+          alt="Logo Koda"
+          width="120"
+          height="30"
+        />
+      </a>
+      <nav class="primary-nav" aria-label="Navigasi utama">
+        <a href="#tentang">Tentang</a>
+        <a href="#perjalanan">Perjalanan</a>
+        <a href="#kontak" class="nav-contact"
+          >Say hello <svg class="icon"><use href="#icon-arrow" /></svg
+        ></a>
+      </nav>
+      <span class="header-note"
+        ><span class="status-dot"></span>Online (ngalong mode)</span
+      >
+    </header>
+
+    <main id="main">
+      <section class="hero page-width" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title" class="type-target">
+            Muhammad<br /><span>Hidayat.</span>
+          </h1>
+          <div
+            class="hero-character-line"
+            aria-label="Player, learner, builder"
+          >
+            <img
+              class="pixel-character hero-character"
+              src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/muh-hidayat-pixelated/frames/frame_001.png"
+              alt=""
+              width="83"
+              height="109"
+              data-pixel-sequence="idle"
+            />
+            <span
+              ><strong>PLAYER.</strong><strong>LEARNER.</strong
+              ><strong>BUILDER.</strong></span
+            >
+          </div>
+          <h3 class="hero-role">
+            <svg class="icon"><use href="#icon-code" /></svg> Fullstack Web
+            Developer
+          </h3>
+          <p class="hero-intro">Merangkai logika.<br />Menghidupkan ide.</p>
+          <a class="button button-cream" href="#tentang"
+            >Kenalan dulu <svg class="icon"><use href="#icon-down" /></svg
+          ></a>
+          <div class="hero-location">
+            <svg class="icon"><use href="#icon-pin" /></svg
+            ><span>Makassar, Indonesia</span
+            ><span class="location-divider"></span
+            ><time id="local-time" aria-label="Waktu di Makassar">WITA</time>
+          </div>
+        </div>
+
+        <div class="world-wrap">
+          <div class="world-heading">
+            <span>INFINITY FOREST</span
+            ><span class="world-indicator"><span></span> LIVE</span>
+          </div>
+          <button
+            class="world-preview"
+            id="world-trigger"
+            type="button"
+            data-open-game
+            aria-label="Temukan easter egg: mainkan Infinity Forest"
+          >
+            <canvas
+              id="world-canvas"
+              width="960"
+              height="670"
+              aria-hidden="true"
+            ></canvas>
+            <span class="world-coordinates" aria-hidden="true"
+              >5°08′ S &nbsp; 119°25′ E</span
+            >
+            <span class="world-caption"
+              ><span class="world-title"
+                >Ada dunia lain<br />di balik layar.</span
+              ><span class="world-enter"
+                ><svg class="icon"><use href="#icon-arrow" /></svg></span
+            ></span>
+            <span class="world-hover-hint">ENTER THE SIDE QUEST</span>
+          </button>
+          <div class="world-bottom">
+            <span
+              ><span class="pixel-star" aria-hidden="true"></span> Psst. Gambar
+              ini bisa dimainkan.</span
+            ><kbd>Q</kbd>
+          </div>
+        </div>
+      </section>
+
+      <div class="interlude page-width">
+        <p>
+          A little logic.<span>A little curiosity.</span><em>A little play.</em>
+        </p>
+        <button
+          type="button"
+          id="bgm-btn"
+          class="soundtrack"
+          aria-label="Putar musik Fantasy RPG"
+          aria-pressed="false"
+        >
+          <span class="sound-bars" aria-hidden="true"
+            ><i></i><i></i><i></i><i></i
+          ></span>
+          <span
+            ><strong>Fantasy RPG</strong
+            ><span id="sound-label">SOUND OFF</span></span
+          >
+          <svg class="icon sound-play" aria-hidden="true">
+            <use href="#icon-play" />
+          </svg>
+        </button>
+        <span class="sr-only" id="audio-status" role="status"></span>
+      </div>
+
+      <section class="about-section" id="tentang" aria-labelledby="about-title">
+        <div class="page-width">
+          <div class="section-title-block">
+            <h2 id="about-title">Di balik <span>layar.</span></h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-photo-wrapper">
+              <img
+                class="about-photo"
+                src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/hidayat-profile-picture.jpg"
+                alt="Foto Profil Muhammad Hidayat"
+                width="480"
+                height="480"
+                loading="lazy"
+              />
+            </div>
+            <div class="about-copy">
+              <p class="about-lead">
+                Buat saya, <em>coding</em> adalah <strong>ikigai</strong>.
+              </p>
+              <p>
+                Terdengar klise dan terlalu melankolis, tapi faktanya memang
+                begitu. Alasan utama kenapa saya ingin menjadi seorang <strong><em>programmer</em></strong>
+                adalah karena saya senang ketika membuat sesuatu yang baru, memecahkan masalah (<em>problem solving</em>),
+                dan mencoba hal-hal baru dalam dunia <em>programming</em>.
+              </p>
+              <p>
+                Saya juga dari dulu menyukai <strong>matematika</strong> dan logika, dan hal itulah yang
+                membuat saya tertarik mendalami dunia <em>software engineering</em>.
+              </p>
+              <div class="address-line">
+                <svg class="icon"><use href="#icon-pin" /></svg>
+                <p class="address-text">Alamat: Jalan Perintis Kemerdekaan KM 10, Makassar, Sulawesi Selatan 90245</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="journey-section"
+        id="perjalanan"
+        aria-label="Hobi dan pendidikan"
+      >
+        <div class="journey-grid page-width">
+          <div class="side-quests">
+            <h4 class="sr-only">Hobi:</h4>
+            <h2>Hobi-hobi <span>saya.</span></h2>
+            <p class="section-description">
+              Hobi (beneran, bukan formalitas aja ini).
+            </p>
+            <ul class="hobby-list">
+              <li>
+            <div class="hobby-row">
+              <img
+                class="pixel-character hobby-character"
+                src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/muh-hidayat-pixelated/frames/frame_013.png"
+                alt=""
+                width="83"
+                height="109"
+                data-pixel-sequence="builder"
+              />
+              <div>
+                <h3>Ngoding</h3>
+                <p>Satu masalah. Banyak kemungkinan.</p>
+              </div>
+              <span class="hobby-end" aria-hidden="true">{ }</span>
+            </div>
+              </li>
+              <li>
+            <div class="hobby-row piano-row">
+              <svg class="hobby-icon icon"><use href="#icon-music" /></svg>
+              <div>
+                <h3>Main piano</h3>
+                <p>Sesekali, ganti keyboard.</p>
+              </div>
+              <div class="piano-toolbar">
+                <div
+                  class="piano-mode-toggle"
+                  role="radiogroup"
+                  aria-label="Mode Piano"
+                >
+                  <button
+                    type="button"
+                    class="piano-mode-btn is-active"
+                    data-mode="guided"
+                    role="radio"
+                    aria-checked="true"
+                    title="Mainkan alunan melodi pada setiap tuts"
+                  >
+                    Guided
+                  </button>
+                  <button
+                    type="button"
+                    class="piano-mode-btn"
+                    data-mode="standard"
+                    role="radio"
+                    aria-checked="false"
+                    title="Mainkan nada piano bebas seperti biasa"
+                  >
+                    Standard
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="piano-helper-bar" id="piano-helper-bar">
+              <span class="piano-helper-dot" aria-hidden="true"></span>
+              <span class="piano-helper-text" id="piano-helper-text">
+                Ketuk tuts apa saja untuk memainkan alunan melodi.
+              </span>
+            </div>
+            <div class="piano-viewport">
+              <div
+                class="piano"
+                role="group"
+                aria-label="Piano C3 sampai C6. Guided memainkan alunan melodi berikutnya; Standard memainkan nada tuts."
+              >
+              <!-- Octave 3 (Low Register) -->
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="130.81"
+                data-pitch="C3"
+                aria-label="C3"
+              >
+                <span>C3</span>
+              </button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="138.59"
+                data-pitch="Cs3"
+                style="--key-position: 1"
+                aria-label="C#3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="146.83"
+                data-pitch="D3"
+                aria-label="D3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="155.56"
+                data-pitch="Ds3"
+                style="--key-position: 2"
+                aria-label="D#3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="164.81"
+                data-pitch="E3"
+                aria-label="E3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="174.61"
+                data-pitch="F3"
+                aria-label="F3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="185.00"
+                data-pitch="Fs3"
+                style="--key-position: 4"
+                aria-label="F#3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="196.00"
+                data-pitch="G3"
+                aria-label="G3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="207.65"
+                data-pitch="Gs3"
+                style="--key-position: 5"
+                aria-label="G#3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="220.00"
+                data-pitch="A3"
+                aria-label="A3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="233.08"
+                data-pitch="As3"
+                style="--key-position: 6"
+                aria-label="A#3"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="246.94"
+                data-pitch="B3"
+                aria-label="B3"
+              ></button>
+
+              <!-- Octave 4 (Middle Register) -->
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="261.63"
+                data-pitch="C4"
+                aria-label="C4"
+              >
+                <span>C4</span>
+              </button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="277.18"
+                data-pitch="Cs4"
+                style="--key-position: 8"
+                aria-label="C#4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="293.66"
+                data-pitch="D4"
+                aria-label="D4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="311.13"
+                data-pitch="Ds4"
+                style="--key-position: 9"
+                aria-label="D#4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="329.63"
+                data-pitch="E4"
+                aria-label="E4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="349.23"
+                data-pitch="F4"
+                aria-label="F4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="369.99"
+                data-pitch="Fs4"
+                style="--key-position: 11"
+                aria-label="F#4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="392.00"
+                data-pitch="G4"
+                aria-label="G4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="415.30"
+                data-pitch="Gs4"
+                style="--key-position: 12"
+                aria-label="G#4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="440.00"
+                data-pitch="A4"
+                aria-label="A4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="466.16"
+                data-pitch="As4"
+                style="--key-position: 13"
+                aria-label="A#4"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="493.88"
+                data-pitch="B4"
+                aria-label="B4"
+              ></button>
+
+              <!-- Octave 5 (High Register) -->
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="523.25"
+                data-pitch="C5"
+                aria-label="C5"
+              >
+                <span>C5</span>
+              </button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="554.37"
+                data-pitch="Cs5"
+                style="--key-position: 15"
+                aria-label="C#5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="587.33"
+                data-pitch="D5"
+                aria-label="D5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="622.25"
+                data-pitch="Ds5"
+                style="--key-position: 16"
+                aria-label="D#5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="659.25"
+                data-pitch="E5"
+                aria-label="E5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="698.46"
+                data-pitch="F5"
+                aria-label="F5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="739.99"
+                data-pitch="Fs5"
+                style="--key-position: 18"
+                aria-label="F#5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="783.99"
+                data-pitch="G5"
+                aria-label="G5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="830.61"
+                data-pitch="Gs5"
+                style="--key-position: 19"
+                aria-label="G#5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="880.00"
+                data-pitch="A5"
+                aria-label="A5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key black-key"
+                data-note="932.33"
+                data-pitch="As5"
+                style="--key-position: 20"
+                aria-label="A#5"
+              ></button>
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="987.77"
+                data-pitch="B5"
+                aria-label="B5"
+              ></button>
+
+              <!-- Top Resolution Note -->
+              <button
+                type="button"
+                class="piano-key white-key"
+                data-note="1046.50"
+                data-pitch="C6"
+                aria-label="C6"
+              >
+                <span>C6</span>
+              </button>
+              </div>
+            </div>
+            <p class="piano-swipe-hint">Geser tuts untuk melihat oktaf lain.</p>
+              </li>
+              <li>
+            <div class="hobby-row">
+              <svg class="hobby-icon icon"><use href="#icon-book" /></svg>
+              <div>
+                <h3>Baca</h3>
+                <p>Membuka halaman. Menemukan perspektif.</p>
+              </div>
+              <svg class="hobby-end icon" aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+            </div>
+              </li>
+            </ul>
+            <span id="piano-status" class="sr-only" role="status"></span>
+          </div>
+          <div class="education">
+            <h4 class="sr-only">Sekolah:</h4>
+            <div class="education-heading">
+              <h2>Riwayat <span>pendidikan.</span></h2>
+              <img
+                class="pixel-character education-character"
+                src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/muh-hidayat-pixelated/frames/frame_001.png"
+                alt=""
+                width="83"
+                height="109"
+                data-pixel-sequence="idle"
+              />
+            </div>
+            <p class="section-description">
+              Setiap langkah membawa cara berpikir baru.
+            </p>
+            <ol class="education-list">
+              <li>
+                <span class="education-level">SD</span>
+                <div>
+                  <h3>SDN 008 Sidodadi</h3>
+                  <p>Awal perjalanan</p>
+                </div>
+                <span class="timeline-dot"></span>
+              </li>
+              <li>
+                <span class="education-level">SMP</span>
+                <div>
+                  <h3>SMP Negeri 1 Wonomulyo</h3>
+                  <p>Memperluas cakrawala</p>
+                </div>
+                <span class="timeline-dot"></span>
+              </li>
+              <li>
+                <span class="education-level">SMA</span>
+                <div>
+                  <h3>MAN 1 Polman</h3>
+                  <p>Menemukan arah</p>
+                </div>
+                <span class="timeline-dot"></span>
+              </li>
+              <li class="education-university">
+                <span class="education-level">S1</span>
+                <div>
+                  <h3>Universitas Hasanuddin</h3>
+                  <p>Fisika <span class="course-dot">·</span> IPK 3.6</p>
+                </div>
+                <span class="timeline-dot"></span>
+              </li>
+            </ol>
+            <p class="journey-note">
+              <svg class="icon" aria-hidden="true">
+                <use href="#icon-arrow" />
+              </svg>
+              <span class="journey-note-text"
+                >Semoga bisa S2 dan S3 di kemudian hari atau di alternate
+                universe saja..</span
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="site-footer" id="kontak">
+        <div class="footer-main page-width">
+          <div>
+            <img
+              class="pixel-character footer-character"
+              src="https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-1/muh-hidayat-pixelated/frames/frame_017.png"
+              alt=""
+              width="83"
+              height="109"
+              data-pixel-sequence="player"
+            />
+            <h2 class="type-target footer-title">
+              Ide bagus berawal<br />dari <span>“halo.”</span>
+            </h2>
+            <p>Soal coding, musik, atau sekadar bertukar cerita.</p>
+          </div>
+          <a
+            class="instagram-link"
+            id="instagram-link"
+            href="https://instagram.com/mrdevip15"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span
+              ><svg class="icon"><use href="#icon-instagram" /></svg> Temui saya
+              di Instagram<strong>@mrdevip15</strong></span
+            ><span class="contact-arrow"
+              ><svg class="icon"><use href="#icon-arrow" /></svg></span
+          ></a>
+        </div>
+        <div class="footer-bottom page-width">
+          <a class="footer-brand" href="#">MH<span>.</span></a>
+          <p>Built with curiosity. <span>Makassar, Indonesia.</span></p>
+          <button type="button" class="secret-button" data-open-game>
+            <span class="pixel-star" aria-hidden="true"></span> One more side
+            quest? <svg class="icon"><use href="#icon-arrow" /></svg></button
+          ><a href="#" class="back-top" aria-label="Kembali ke atas"
+            ><svg class="icon"><use href="#icon-down" /></svg
+          ></a>
+          <p class="copyright">
+            &copy; 2026 Muhammad Hidayat. All rights reserved. Original game assets, sprites, audio, and code are proprietary and protected by copyright law.
+          </p>
+        </div>
+      </footer>
+    </main>
+    <noscript>
+      <style>
+        .type-target {
+          visibility: visible !important;
+        }
+      </style>
+      <p class="noscript-message">
+        Profil ini bisa dibaca tanpa JavaScript. Aktifkan JavaScript untuk
+        memainkan Infinity Forest dan piano mini.
+      </p>
+    </noscript>
+  </body>
+</html>

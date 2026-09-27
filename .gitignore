@@ -1,0 +1,10 @@
+# Master source files (PROTECT.md)
+*.aseprite
+*.psd
+*.tmp
+
+# Operating system & IDE junk
+.DS_Store
+Thumbs.db
+user_data/
+screenshots/

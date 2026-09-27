@@ -1,0 +1,155 @@
+@font-face {
+  font-family: Rancho;
+  src: url("https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-3/rancho.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  font-family: Rancho, cursive;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* { box-sizing: border-box; }
+
+html { min-height: 100%; }
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background: #20242a;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 54px max(32px, calc((100vw - 1240px) / 2)) 90px;
+  color: #fff;
+  background:
+    linear-gradient(rgba(19, 22, 26, .35), rgba(19, 22, 26, .35)),
+    url("https://raw.githubusercontent.com/mrdevip15/koda-muhammad-hidayat-final/main/level-1/task-3/background.jpg") center top / cover no-repeat;
+}
+
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.wordmark {
+  color: #fff;
+  font: 700 40px/1 Arial, Helvetica, sans-serif;
+  letter-spacing: -.04em;
+  text-decoration: none;
+}
+
+.brand-mark {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: 51px;
+  height: 51px;
+  border: 3px solid #f47713;
+  color: #f47713;
+  font: 900 15px/.9 Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.brand-mark span {
+  display: grid;
+  place-items: center;
+  border: 1px solid #f47713;
+}
+
+.content { margin-top: 63px; }
+
+.intro {
+  max-width: 1100px;
+  margin: 0 auto 36px;
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.rule {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, .78);
+}
+
+.content > .rule { margin-bottom: 44px; }
+
+.card {
+  min-height: 214px;
+  padding: 28px 51px 30px;
+  background: #fff;
+  font: 26px/1.16 Arial, Helvetica, sans-serif;
+}
+
+.card h2 {
+  margin: 0 0 17px;
+  font-size: inherit;
+  font-weight: 400;
+}
+
+.card ol, .card ul {
+  margin: 0;
+  padding-left: 42px;
+}
+
+.card-benefits {
+  border: 5px solid #355893;
+  color: #aa6128;
+}
+
+.card-belief {
+  min-height: 244px;
+  margin-top: 42px;
+  border: 5px solid #d47a30;
+  color: #24436a;
+}
+
+.card-belief li { padding-left: 2px; }
+.card-belief ul { max-width: 1040px; }
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 58px;
+  margin-top: 40px;
+  border-radius: 5px;
+  background: #f47900;
+  color: #fff;
+  font: 700 23px/1 Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  transition: background-color .15s ease;
+}
+
+.cta:hover { background: #d96700; }
+.cta:focus-visible, .wordmark:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+.site-footer { margin-top: 54px; text-align: center; }
+.site-footer p { margin: 30px 0 0; font: 26px/1.2 Arial, Helvetica, sans-serif; }
+
+@media (max-width: 760px) {
+  .page { padding: 28px 24px 44px; background-position: 40% top; }
+  .wordmark { font-size: 33px; }
+  .brand-mark { width: 42px; height: 42px; font-size: 12px; }
+  .content { margin-top: 55px; }
+  .intro { margin-bottom: 38px; font-size: clamp(27px, 5.4vw, 36px); line-height: 1.25; }
+  .content > .rule { margin-bottom: 28px; }
+  .card { min-height: 0; padding: 24px; font-size: 25px; }
+  .card h2 { margin-bottom: 15px; }
+  .card ol, .card ul { padding-left: 28px; }
+  .card-belief { margin-top: 25px; }
+  .cta { margin-top: 25px; }
+  .site-footer { margin-top: 39px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta { transition: none; }
+}

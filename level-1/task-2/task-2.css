@@ -1,0 +1,134 @@
+/* External CSS: aturan yang diminta pada soal nomor 1. */
+.profile-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.koda-logo {
+  width: 180px;
+  height: auto;
+}
+
+.profile-heading {
+  text-align: right;
+}
+
+.profile-heading h3 {
+  margin-top: 20px;
+}
+
+.profession-stack {
+  color: #555;
+  font-size: 14px;
+}
+
+h3 {
+  padding-left: 30px;
+}
+
+p.programmer-reason {
+  font-family: fantasy;
+  font-size: 17px;
+  font-weight: 300;
+}
+
+p.address-text {
+  background-color: yellow;
+}
+
+img.profile-photo {
+  width: 500px;
+  height: 500px;
+}
+
+/*
+ * 2. Syntax CSS terdiri dari selector dan declaration block.
+ * Contoh: h3 { padding-left: 30px; }
+ * "h3" adalah selector yang memilih elemen, sedangkan isi kurung kurawal
+ * berisi deklarasi. Tiap deklarasi mempunyai property (padding-left)
+ * dan value (30px), dipisahkan titik dua dan diakhiri titik koma.
+ */
+
+/*
+ * 3. CSS specificity adalah bobot selector ketika beberapa aturan yang
+ * setara dalam cascade menargetkan property pada elemen yang sama.
+ * Secara umum: ID lebih spesifik daripada class/atribut/pseudo-class,
+ * dan semuanya lebih spesifik daripada nama elemen/pseudo-element.
+ * Inline style punya prioritas lebih tinggi dari selector biasa.
+ * !important, cascade layer, dan asal aturan juga memengaruhi hasil;
+ * bila bobot tetap sama, aturan yang muncul belakangan akan menang.
+ */
+
+/*
+ * 4. Responsive website adalah situs yang tata letak, ukuran, dan
+ * tampilannya menyesuaikan ruang layar agar tetap terbaca dan dapat
+ * digunakan pada ponsel, tablet, maupun desktop. Grid yang berubah
+ * menjadi satu kolom dan gambar yang mengecil adalah contohnya.
+ */
+
+/*
+ * 5. CSS media queries menerapkan aturan hanya saat kondisi media
+ * terpenuhi, misalnya lebar viewport tertentu atau prefers-reduced-motion.
+ * Contoh @media (max-width: 800px) di bawah menyesuaikan layout kecil.
+ */
+
+/*
+ * 6. Flexbox dan Grid adalah sistem layout CSS. Flexbox mengatur item
+ * terutama pada satu sumbu, yaitu baris atau kolom; cocok untuk navigasi
+ * dan deretan tombol. Grid mengatur baris dan kolom sekaligus; cocok untuk
+ * susunan bagian halaman. Di bawah, Flexbox mengatur hobi dan Grid
+ * mengatur foto serta teks profil.
+ */
+
+/*
+ * 7. Bootstrap adalah framework frontend dengan CSS dan komponen siap
+ * pakai, serta JavaScript untuk komponen interaktif tertentu. Bootstrap
+ * membantu membuat tampilan responsif melalui grid, utilitas, dan komponen.
+ * Halaman ini menggunakan CSS sendiri; Bootstrap tidak diperlukan untuk
+ * memenuhi tugas ini.
+ */
+
+/* 8. Bonus: contoh Flexbox, Grid, dan Media Queries. */
+.hobbies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 500px minmax(0, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 800px) {
+  .profile-header {
+    align-items: center;
+  }
+
+  .koda-logo {
+    width: 120px;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  img.profile-photo {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .profile-heading {
+    align-self: stretch;
+  }
+}

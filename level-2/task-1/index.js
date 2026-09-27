@@ -1,0 +1,21 @@
+const nama = 'Muhammad Hidayat';
+const umur = 26;
+const alamat = 'Makassar, Sulawesi Selatan';
+const hobi = 'Ngoding, main piano, dan membaca.';
+const pendidikan = 'Universitas Hasanuddin, jurusan Fisika.';
+const alasanTertarik = 'Saya suka matematika dan memecahkan masalah secara logis, lalu mengubah ide menjadi sesuatu yang bisa digunakan.';
+const yangDipelajari = 'HTML, CSS, JavaScript, serta membuat situs interaktif dan game sederhana.';
+const kesulitan = 'Pernah; memahami logika dan mencari kesalahan kode perlu latihan dan ketekunan.';
+const alasanIkutKoda = 'Saya ingin belajar lebih terarah, memperdalam pengembangan web, dan berkembang bersama peserta lain.';
+const alasanDiterima = 'Saya punya rasa ingin tahu, senang belajar hal baru, dan sudah mempraktikkan coding lewat proyek portofolio interaktif.';
+
+console.log(nama);
+console.log(umur);
+console.log(alamat);
+console.log(hobi);
+console.log(pendidikan);
+console.log(alasanTertarik);
+console.log(yangDipelajari);
+console.log(kesulitan);
+console.log(alasanIkutKoda);
+console.log(alasanDiterima);
