@@ -965,14 +965,198 @@
   font-size: 10px;
 }
 
-@media (max-width: 740px) {
-  .sq-dialog:not([data-state="playing"]) .sq-stage {
-    aspect-ratio: auto;
-    height: auto;
-    min-height: 320px;
-    max-height: none;
-    overflow: visible;
+/* ── Fullscreen Mode & Mobile Viewport Styles ── */
+.sq-dialog:fullscreen,
+.sq-dialog:-webkit-full-screen,
+.sq-dialog.is-fullscreen {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  width: 100dvw !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: var(--sq-dark) !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: stretch !important;
+  z-index: 99999 !important;
+}
+
+.sq-dialog:fullscreen .sq-window,
+.sq-dialog:-webkit-full-screen .sq-window,
+.sq-dialog.is-fullscreen .sq-window {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  margin: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  flex: 1 !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+}
+
+.sq-dialog:fullscreen .sq-stage,
+.sq-dialog:-webkit-full-screen .sq-stage,
+.sq-dialog.is-fullscreen .sq-stage {
+  flex: 1 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  aspect-ratio: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+  background: #142b24 !important;
+}
+
+.sq-dialog:fullscreen .sq-stage canvas,
+.sq-dialog:-webkit-full-screen .sq-stage canvas,
+.sq-dialog.is-fullscreen .sq-stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% center;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .sq-dialog {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: var(--sq-dark) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: stretch !important;
+    z-index: 99999 !important;
   }
+
+  .sq-window {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 100% !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    margin: 0 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .sq-header {
+    flex-shrink: 0;
+    min-height: 44px;
+    padding: max(8px, env(safe-area-inset-top)) max(12px, env(safe-area-inset-right)) 6px max(12px, env(safe-area-inset-left));
+    gap: 8px;
+    border-bottom: 1px solid #b4c6aa20;
+  }
+
+  .sq-brand {
+    gap: 8px;
+    align-items: center;
+  }
+
+  .sq-brand h2 {
+    font-size: 18px;
+    margin: 0;
+  }
+
+  .sq-character-mark {
+    width: 22px;
+    height: 30px;
+  }
+
+  .sq-window-actions {
+    gap: 6px;
+  }
+
+  .sq-icon-button {
+    width: 36px;
+    height: 36px;
+  }
+
+  .sq-hud {
+    flex-shrink: 0;
+    padding: 5px max(12px, env(safe-area-inset-right)) 5px max(12px, env(safe-area-inset-left));
+    gap: 12px;
+    grid-template-columns: 1fr auto auto;
+    border-bottom: 1px solid #b4c6aa18;
+  }
+
+  .sq-hud-stat strong,
+  .sq-score-stat strong {
+    font-size: 17px;
+  }
+
+  /* During playing, canvas fills the stage cleanly */
+  .sq-dialog[data-state="playing"] .sq-stage {
+    flex: 1 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    aspect-ratio: auto !important;
+    background: #142b24 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow: hidden !important;
+  }
+
+  .sq-dialog[data-state="playing"] .sq-stage canvas {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    object-fit: cover !important;
+    object-position: 50% center;
+    display: block !important;
+  }
+
+  /* When not playing (tutorial, screens), stage can scroll if needed */
+  .sq-dialog:not([data-state="playing"]) .sq-stage {
+    flex: 1 !important;
+    min-height: 0 !important;
+    width: 100% !important;
+    position: relative !important;
+    aspect-ratio: auto !important;
+    background: #142b24 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
   .sq-dialog:not([data-state="playing"]) .sq-stage canvas {
     position: absolute;
     inset: 0;
@@ -980,11 +1164,12 @@
     height: 100%;
     object-fit: cover;
   }
+
   .sq-dialog:not([data-state="playing"]) .sq-screen {
     position: relative;
     inset: auto;
     width: 100%;
-    min-height: 320px;
+    min-height: auto;
     padding: 16px 14px 18px;
     box-sizing: border-box;
     display: flex;
@@ -993,6 +1178,26 @@
     align-items: center;
     overflow: visible;
   }
+
+  .sq-footer {
+    flex-shrink: 0;
+    min-height: 24px;
+    padding: 3px max(12px, env(safe-area-inset-right)) 3px max(12px, env(safe-area-inset-left));
+    border-top: 1px solid #b4c6aa18;
+  }
+
+  .sq-touch-controls {
+    flex-shrink: 0;
+    display: flex !important;
+    padding: 8px max(12px, env(safe-area-inset-right)) max(12px, env(safe-area-inset-bottom)) max(12px, env(safe-area-inset-left)) !important;
+    background: rgba(14, 28, 23, 0.98);
+    border-top: 1px solid #b4c6aa24;
+  }
+
+  .sq-touch-controls button {
+    height: 52px;
+  }
+
   .sq-screen {
     padding: 18px 14px;
   }
