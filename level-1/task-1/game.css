@@ -246,11 +246,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 20px;
-  background: rgba(10, 29, 22, .74);
-  backdrop-filter: blur(3px);
-  -webkit-backdrop-filter: blur(3px);
+  padding: 14px;
+  background: rgba(10, 29, 22, .82);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
   z-index: 2;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .sq-screen-inner {
@@ -966,8 +968,9 @@
 @media (max-width: 740px) {
   .sq-dialog:not([data-state="playing"]) .sq-stage {
     aspect-ratio: auto;
-    height: 310px;
-    min-height: 310px;
+    height: auto;
+    min-height: 340px;
+    max-height: 72vh;
   }
   .sq-dialog:not([data-state="playing"]) .sq-stage canvas {
     position: absolute;
@@ -1250,16 +1253,49 @@
 
 .sq-tut-tip strong { color: var(--sq-sage); }
 
+.sq-stepper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin: 0 auto 10px;
+}
+
+.sq-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #b4c6aa40;
+  display: inline-block;
+  transition: all .2s ease;
+}
+
+.sq-dot.is-active {
+  background: var(--sq-orange);
+  width: 18px;
+  border-radius: 4px;
+}
+
+.sq-tut-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
 @media (max-width: 520px) {
   .sq-tut-grid {
     grid-template-columns: 1fr;
     gap: 7px;
+    margin-bottom: 14px;
   }
   .sq-tut-card {
-    padding: 14px 13px 12px;
+    padding: 10px 12px 10px;
   }
-  .sq-tut-desc { font-size: 10px; }
-  .sq-tutorial > p { font-size: 11px; margin-bottom: 16px; }
+  .sq-tut-desc { font-size: 10px; line-height: 1.4; }
+  .sq-tutorial h3 { font-size: 26px !important; margin: 4px 0 6px !important; }
+  .sq-tutorial > p { font-size: 11px; margin-bottom: 12px; }
+  .sq-tut-footer { gap: 8px; }
 }
 
 .sq-touch-instructions {
